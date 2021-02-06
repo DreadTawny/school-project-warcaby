@@ -7,4 +7,52 @@ body {
 }
 #main-flex {
     display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
+header {
+    flex: 1;
+}
+main {
+    flex: 8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer {
+    flex: 1;
+}
+#game-area {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+table {
+    height: 70vh;
+    width: 70vh;
+}
+table{
+    border: 1px solid black;
+}
+td, tr {
+    height: 10%;
+    padding: 0;
+    margin: 0;
+}
+
+tr:nth-child(even) td:nth-child(even), tr:nth-child(odd) td:nth-child(odd) {
+    background-color: black;
+}
+.pawn-black, .pawn-white {
+    height: 80%;
+    width: 80%;
+    border-radius: 360px;
+    margin: 10%;
+}
+.pawn-black {
+    background-color: brown;  
+}
+.pawn-white {
+    background-color: burlywood;
+}
+
