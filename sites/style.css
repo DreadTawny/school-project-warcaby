@@ -55,4 +55,6 @@ tr:nth-child(even) td:nth-child(even), tr:nth-child(odd) td:nth-child(odd) {
 .pawn-white {
     background-color: burlywood;
 }
-
+.username {
+    color: blue;
+}

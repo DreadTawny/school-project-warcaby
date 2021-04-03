@@ -7,13 +7,16 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
     <script src="Game.js" defer></script>
+    <script src="Pawns.js" defer></script>
+    <script src="client.js" defer></script>
+    <script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
    <div id="main-flex">
        <header>
 
        </header>
-       <div id="game-area">
+       <div id="game-area" draggable="false">
             <table>
                 <tr>
                     <td id="H1"></td>
@@ -96,6 +99,11 @@
                     <td id="A8"></td>
                 </tr>
             </table>
+       </div>
+       <div id="chat">
+           <p id="messages"></p>
+           <input type="text" id="content"/>
+           <input type="button" value="Send" id="send"/>
        </div>
        <footer>
 
