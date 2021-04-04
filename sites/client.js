@@ -22,7 +22,7 @@ document.getElementById("send").addEventListener("click", () => {
 })
 socket.on("message", data => {
     console.log(data)
-    document.getElementById("messages").innerHTML += `<span class="username">${data.user}</span>: ${data.message}<br/>`
+    document.getElementById("messages").innerHTML += `<span class="username">${data.user }</span>: ${data.message}<br/>`
 })
 socket.on("playerAssign", data => {
     console.log(data)
@@ -31,5 +31,6 @@ socket.on("playerAssign", data => {
 })
 socket.on("roomOverflow", data => {
     let newRoom = prompt(data)
+    room = newRoom
     socket.emit("join", newRoom)
 })

@@ -23,7 +23,6 @@ io.on("connection", socket => {
         if(!rooms[data[1]]) rooms[data[1]] = { "white": null, "black": null}
         if(rooms[data[1]][player[0]] === null) {
             rooms[data[1]][player[0]] = socket.id
-            console.log(rooms)
             socket.emit("playerAssign", player[0])
         }
         else if(rooms[data[1]][player[0]] && !rooms[data[1]][player[1]]) {
@@ -35,10 +34,8 @@ io.on("connection", socket => {
             socket.leave(data[1])
         }
         socket.join(data[1])
-
     }) 
     socket.on("turnEnd", data => {
-        console.log(data.map)
         if(data.player === player[0]){
             io.to(data.room).emit("startTurn", { map: data.map, player: player[1]}) 
         }
@@ -52,11 +49,17 @@ io.on("connection", socket => {
        console.log(users[socket.id])
        io.to(data[1]).emit("message", {user: users[socket.id], message:data[0]})
    })
+   socket.on("disconnect", data => {
+      for(let room in rooms) {
+          socket.leave(room)
+          rooms[room] = null
+          console.log(rooms)
+      }
+   })
     socket.emit("hello", "Welcome to the websocket")
     socket.on("chat", data => {
         console.log(data)
         io.sockets.emit("chat", data)
     })
-    io.to(rooms[socket.id]).emit("chat", `Welcome to the room ${rooms[socket.id]}`)
 })
 app.listen(3000)
