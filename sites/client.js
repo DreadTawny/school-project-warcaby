@@ -1,5 +1,6 @@
 const socket = io()
 let game = "hello"
+const announcer = document.getElementById("announcer")
 socket.on("hello", data => {
     console.log(data)
 })
@@ -11,6 +12,7 @@ socket.on("startTurn", data => {
    game.boardMap = JSON.parse(data.map)
    game.clearBoard()
    game.gameStart(data.player)
+   announcer.innerHTML = `${data.player}'s turn`
 })
 socket.on("chat", data => {
     console.log(data)
@@ -26,6 +28,7 @@ socket.on("message", data => {
 })
 socket.on("playerAssign", data => {
     console.log(data)
+    announcer.innerHTML = `You play as ${data}`
     let gameLocal = new Board(data)
     game = gameLocal
 })

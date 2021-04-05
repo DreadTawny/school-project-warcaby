@@ -58,3 +58,9 @@ tr:nth-child(even) td:nth-child(even), tr:nth-child(odd) td:nth-child(odd) {
 .username {
     color: blue;
 }
+#announcer {
+    width: 100%;
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 30px;
+}
