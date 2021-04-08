@@ -6,9 +6,10 @@ socket.on("hello", data => {
 })
 
 let username = prompt("Type in your username")
+let room = prompt("Type in the room you want to join")
+socket.emit("join", [username, room])
 document.getElementById("join").addEventListener("click", () => {
-    let room = prompt("Type in the room you want to join")
-    socket.emit("join", [username, room])
+    
 })
 
 socket.on("startTurn", data => {
