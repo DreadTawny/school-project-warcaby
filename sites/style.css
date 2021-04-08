@@ -42,7 +42,7 @@ footer {
 .square {
     background-color: black;
 }
-#secondsquare {
+.secondsquare {
     background-color: white;
 }
 .pawn-black, .pawn-white {
