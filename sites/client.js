@@ -19,7 +19,7 @@ document.getElementById("join").addEventListener("click", () => {
     room = prompt("Type in the room you want to join")
     socket.emit("join", [username, room])
 })
-
+socket.emit("username", username)
 document.getElementById("showCode").addEventListener("click", () => {
     alert(room)
     
@@ -40,6 +40,7 @@ socket.on("chat", data => {
 
 document.getElementById("send").addEventListener("click", () => {
     let message = document.getElementById("content").value 
+    document.getElementById("content").value = null
     socket.emit("message", [message, room])
 })
 
