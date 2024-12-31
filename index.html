@@ -1,22 +1,119 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="sites/style.css">
-    <title>Warcaby</title>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Game</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='sites/style.css'>
+    <script src="sites/Game.js" defer></script>
+    <script src="sites/Pawns.js" defer></script>
+    <script src="sites/client.js" defer></script>
+    <script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
-    <div id="main-flex">
-        <header><h1>Warcaby</h1></header>
-        <main> 
-            <a href="http://127.0.0.1:3000">
-                <div id="button-play">Zagraj w grę</div>
-            </a>
-        </main>
-        <footer>
-            <h3>Info</h3>
-        </footer>
+   <div id="main-flex">
+       <header>
+            <div id="announcer">
+                
+            </div>
+            <div>
+                <button id="join">Join room</button>
+                <button id="showCode">Show room code</button>
+            </div>
+       </header>
+
+    <div id="chessboard">
+
+       <div id="game-area" draggable="false" class="grid-container">
+
+           <div class="square" class="grid-item" id='H1' ></div>
+           <div class="grid-item secondsquare"></div>
+           <div class="square" class="grid-item" id="H3" ></div>
+           <div class="grid-item secondsquare"></div>
+           <div class="square" class="grid-item" id="H5" ></div>
+           <div class="grid-item secondsquare"></div>
+           <div class="square" class="grid-item" id="H7"></div>
+           <div class="grid-item secondsquare"></div>
+
+           <div class="grid-item secondsquare"></div>
+           <div class="square" class="grid-item" id="G2" ></div>
+           <div class="grid-item secondsquare"></div>
+           <div class="square" class="grid-item" id="G4" ></div>
+           <div class="grid-item secondsquare"></div>
+           <div class="square" class="grid-item" id="G6" ></div>
+           <div class="grid-item secondsquare"></div>
+           <div class="square" class="grid-item" id="G8"></div>
+
+           <div class="square" class="grid-item" id="F1"></div>
+           <div class="grid-item secondsquare"></div>
+           <div class="square" class="grid-item" id="F3"></div>
+           <div class="grid-item secondsquare"></div>
+           <div class="square" class="grid-item" id="F5" ></div>
+           <div class="grid-item secondsquare"></div>
+           <div class="square" class="grid-item" id="F7" ></div>
+           <div class="grid-item secondsquare"></div>
+
+           <div class="grid-item secondsquare"></div>
+           <div class="square" class="grid-item" id="E2" ></div>
+           <div class="grid-item secondsquare"></div>
+           <div class="square" class="grid-item" id="E4" ></div>
+           <div class="grid-item secondsquare"></div>
+           <div class="square" class="grid-item" id="E6" ></div>
+           <div class="grid-item secondsquare"></div>
+           <div class="square" class="grid-item" id="E8" ></div>
+
+           <div class="square" class="grid-item" id="D1" ></div>
+           <div class="grid-item secondsquare"></div>
+           <div class="square" class="grid-item" id="D3"></div>
+           <div class="grid-item secondsquare"></div>
+           <div class="square" class="grid-item" id="D5"></div>
+           <div class="grid-item secondsquare"></div>
+           <div class="square" class="grid-item" id="D7" ></div>
+           <div class="grid-item secondsquare"></div>
+
+           <div class="grid-item secondsquare"></div>
+           <div class="square" class="grid-item" id="C2"></div>
+           <div class="grid-item secondsquare"></div>
+           <div class="square" class="grid-item" id="C4" ></div>
+           <div class="grid-item secondsquare"></div>
+           <div class="square" class="grid-item" id="C6"></div>
+           <div class="grid-item secondsquare"></div>
+           <div class="square" class="grid-item" id="C8" ></div>
+
+           <div class="square" class="grid-item" id="B1"></div>
+           <div class="grid-item secondsquare"></div>
+           <div class="square" class="grid-item" id="B3"></div>
+           <div class="grid-item secondsquare"></div>
+           <div class="square" class="grid-item" id="B5"></div>
+           <div class="grid-item secondsquare"></div>
+           <div class="square" class="grid-item" id="B7"></div>
+           <div class="grid-item secondsquare"></div>
+
+           <div class="grid-item secondsquare" ></div>
+           <div class="square" class="grid-item" id="A2" ></div>
+           <div class="grid-item secondsquare"></div>
+           <div class="square" class="grid-item" id="A4"></div>
+           <div class="grid-item secondsquare"></div>
+           <div class="square" class="grid-item" id="A6" ></div>
+           <div class="grid-item secondsquare"></div>
+           <div class="square" class="grid-item" id="A8" ></div>
+       
+       </div>
+
+       <div id="chat">
+        <input type="text" id="content"/>
+        <input type="button" value="Send" id="send"/>
+        <p id="messages"></p>
+
     </div>
+
+    </div>
+
+
+       <footer>
+
+       </footer>
+   </div> 
 </body>
 </html>
